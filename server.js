@@ -7,12 +7,18 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import authController from './controllers/auth.js'; 
+import wardrobeController from './controllers/wardrobe.js'
+import isSignedIn from './middleware/is-signed-in.js';
+import passUserToView from './middleware/pass-user-to-view.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const port = process.env.PORT || '3000';
 const app = express(); 
+
 
 mongoose.connection.on('connected', ()=>{
     console.log('Mongoose connected to', mongoose.connection.name); 
@@ -45,6 +51,12 @@ app.use(
   })
 );
 
+app.use(passUserToView);
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
+
 
 
 // Routes
@@ -54,8 +66,13 @@ app.get('/', (req, res)=>{
     });
 });
 
+app.use('/auth', authController) ;
+
+//must be logged in
+
+app.use('/wardrobe', isSignedIn, wardrobeController);
 
 
 app.listen(port, ()=>{
     console.log(`The express app is ready on port http://localhost:${port}`);
-})
+});

@@ -19,6 +19,7 @@ router.get("/sign-out", (req, res) => {
 });
 
 router.post("/sign-in", async (req, res) => {
+  const username = req.body.username.charAt(0).toUpperCase() + req.body.username.slice(1);
   const userInDB = await User.findOne({ username: req.body.username }).select('+password');
   if (!userInDB) {
     return res.send(

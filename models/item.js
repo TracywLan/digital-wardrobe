@@ -48,8 +48,9 @@ const ItemSchema = new mongoose.Schema({
   },
   size: {
     type: String,
-    enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    required: false
+    enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL',''],
+    required: false,
+    default:'',
   },
   brand: {
     type: String,
@@ -58,8 +59,9 @@ const ItemSchema = new mongoose.Schema({
   },
   season: {
     type: String,
-    enum: ['spring', 'summer', 'fall', 'winter'],
-    required: false
+    enum: ['spring', 'summer', 'fall', 'winter','all'],
+    required: false,
+    default:'all'
   },
   notes: {
     type: String,

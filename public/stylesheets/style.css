@@ -1,0 +1,121 @@
+:root {
+    --bg-pink: #f7e1e6;
+    --dark-grey: #3d3436;
+    --border-style: radial-gradient(circle, var(--dark-grey) 1px, transparent 1px);
+}
+
+body {
+    background-color: var(--bg-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    color: var(--dark-grey);
+    font-family: 'Georgia', serif;
+}
+
+/* .card-container {
+    background-color: var(--bg-pink);
+    width: 400px;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    color: var(--dark-grey);
+    font-family: 'Georgia', serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+} */
+
+/* Scalloped Border Effect */
+.top-border, .bottom-border {
+    height: 20px;
+    width: 100%;
+    background-image: var(--border-style);
+    background-size: 20px 20px;
+    position: absolute;
+    left: 0;
+}
+
+.top-border { top: 15px; border-bottom: 1px dashed var(--dark-grey); }
+.bottom-border { bottom: 50px; border-top: 1px dashed var(--dark-grey); }
+
+.main-title {
+    font-family: 'Great Vibes', cursive; /* Use a script font from Google Fonts */
+    font-size: 4rem;
+    margin: 40px 0;
+    font-weight: 400;
+    letter-spacing: -2px;
+}
+
+.quote-small {
+    font-size: 0.6rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+}
+
+.quote-center {
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.heart-icon {
+    font-size: 50px;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* Arrow through heart effect */
+.heart-icon::after {
+    content: '→';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 60px;
+    font-weight: 100;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid var(--dark-grey);
+    padding: 10px 25px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    text-decoration: none;
+}
+
+.btn a{
+    text-decoration: none;
+    color: #3d3436;
+}
+
+/* Ornate button corners */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    border: 1px solid var(--dark-grey);
+    pointer-events: none;
+}
+
+.footer {
+    font-size: 0.5rem;
+    margin-top: 80px;
+    opacity: 0.7;
+}

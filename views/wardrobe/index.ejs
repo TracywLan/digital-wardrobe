@@ -10,5 +10,14 @@
   <%- include('../partials/_navbar.ejs') %>
   <h1>Your Wardrobe</h1>
   <a href="/wardrobe/new">Add a New Item</a>
+
+  <ul>
+    <% wardrobe.forEach(item => { %>
+     
+      <li>
+        <img src="<%=  %>" alt="<%= item.name %>">
+      </li>
+    <% }) %>
+  </ul>
 </body>
 </html>

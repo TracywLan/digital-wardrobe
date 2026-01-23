@@ -2,8 +2,9 @@
   <% if(user) { %>
   <div class="landing-header">
     <div class="logo-container">
-      <div class="ootd-icon"></div>
-      <h1>What2Wear</h1>
+      <div class="logo-icon">
+        <!-- <img src="./images/what2wear_logo.png" alt="what2wear logo"> -->
+      </div>
     </div>
     <div class="nav-links">
       <a href="/wardrobe">Closet</a>
@@ -14,15 +15,16 @@
 
   <% } else { %>
   <div class="landing-header">
-    <!-- <div class="logo-container">
-      <div class="ootd-icon"></div>
-      <h1>What2Wear</h1>
+    <div class="logo-container">
+      <div class="logo-icon">
+      </div>
     </div>
     <div class="auth-links">
       <a href="/auth/sign-up">Sign Up</a>
       <a href="/auth/sign-in">Sign In</a>
     </div>
-  </div> -->
+  </div>
   <% } %>
+
   <div class="top-border"></div>
 </nav>

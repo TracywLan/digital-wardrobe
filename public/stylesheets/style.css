@@ -1,121 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Tangerine:wght@400;700&display=swap');
+
 :root {
     --bg-pink: #f7e1e6;
     --dark-grey: #3d3436;
-    --border-style: radial-gradient(circle, var(--dark-grey) 1px, transparent 1px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: var(--bg-pink);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    margin: 0;
-    text-align: center;
-    position: relative;
     color: var(--dark-grey);
     font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
 }
 
-/* .card-container {
-    background-color: var(--bg-pink);
-    width: 400px;
-    padding: 40px 20px;
-    text-align: center;
-    position: relative;
-    color: var(--dark-grey);
-    font-family: 'Georgia', serif;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-} */
-
-/* Scalloped Border Effect */
-.top-border, .bottom-border {
-    height: 20px;
+/* Header with logo and nav */
+.landing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background-image: var(--border-style);
-    background-size: 20px 20px;
-    position: absolute;
-    left: 0;
+    padding: 30px 60px;
+    box-sizing: border-box;
 }
 
-.top-border { top: 15px; border-bottom: 1px dashed var(--dark-grey); }
-.bottom-border { bottom: 50px; border-top: 1px dashed var(--dark-grey); }
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    background-image: url('../images/what2wear_logo.png');
+    width: 5em;
+    height: 2em;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+nav {
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    color: var(--dark-grey);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-style: italic;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.nav-links li a:hover {
+    opacity: 0.7;
+}
+
+/* Decorative top border with scalloped pattern */
+.top-border {
+    width: 100%;
+    height: 60px;
+    margin-top: 40px;
+    background-image: 
+        radial-gradient(circle at 5% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 15% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 25% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 35% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 45% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 55% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 65% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 75% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 85% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 95% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px);
+    background-size: 10% 100%;
+    background-repeat: repeat-x;
+    position: relative;
+}
+
+.top-border::before {
+    content: '✦ ✦   It is a secret the stars alone hold   that I kissed you in my dream.   ✦ ✦';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-style: italic;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
 
 .main-title {
-    font-family: 'Great Vibes', cursive; /* Use a script font from Google Fonts */
-    font-size: 4rem;
-    margin: 40px 0;
-    font-weight: 400;
-    letter-spacing: -2px;
-}
-
-.quote-small {
-    font-size: 0.6rem;
-    font-style: italic;
-    letter-spacing: 1px;
-    margin-bottom: 60px;
-}
-
-.quote-center {
-    font-size: 0.8rem;
-    font-style: italic;
-    line-height: 1.5;
-    margin: 20px 0;
-}
-
-.heart-icon {
-    font-size: 50px;
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding: 80px 40px;
     position: relative;
 }
 
-/* Arrow through heart effect */
+.main-title h1 {
+    font-family: 'Tangerine', cursive;
+    font-size: 10rem;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    line-height: 1;
+    position: relative;
+}
+
+/* Ribbon decoration on the title */
+/* .main-title h1::after {
+    content: '🎀';
+    position: absolute;
+    right: -100px;
+    top: -30px;
+    font-size: 4rem;
+    opacity: 0.4;
+} */
+
+.quote-center {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 40px 0 50px 0;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Heart with arrow */
+.heart-icon {
+    font-size: 100px;
+    margin: 50px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.heart-icon::before {
+    /* content: '♥'; */
+    color: var(--dark-grey);
+}
+
 .heart-icon::after {
-    content: '→';
+    content: '➵';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-15deg);
-    font-size: 60px;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 100px;
     font-weight: 100;
 }
 
+/* Button styling */
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 30px;
-    text-decoration: none;
+    gap: 5em;
+    margin: 50px 0;
 }
 
 .btn {
     background: transparent;
-    border: 1px solid var(--dark-grey);
-    padding: 10px 25px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    border: 2px solid var(--dark-grey);
+    padding: 18px 50px;
+    font-size: 1.8rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     position: relative;
     text-decoration: none;
+    transition: all 0.3s;
 }
 
-.btn a{
+.btn:hover {
+    background-color: rgba(61, 52, 54, 0.05);
+    transform: translateY(-2px);
+}
+
+.btn a {
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
     text-decoration: none;
-    color: #3d3436;
+    color: var(--dark-grey);
 }
 
 /* Ornate button corners */
 .btn::before {
     content: '';
     position: absolute;
-    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
     border: 1px solid var(--dark-grey);
+    border-radius: 10px;
     pointer-events: none;
 }
 
+/* Add icons to buttons */
+.btn:first-child a::before {
+    content: '👗 ';
+}
+
+.btn:last-child a::after {
+    content: ' ✦';
+}
+
+/* Bottom decorative border */
+.bottom-border {
+    width: 100%;
+    height: 60px;
+    margin-top: auto;
+    background-image: 
+        radial-gradient(circle at 5% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 15% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 25% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 35% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 45% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 55% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 65% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 75% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 85% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
+        radial-gradient(circle at 95% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px);
+    background-size: 10% 100%;
+    background-repeat: repeat-x;
+}
+
 .footer {
-    font-size: 0.5rem;
-    margin-top: 80px;
-    opacity: 0.7;
+    font-size: 0.7rem;
+    padding: 30px;
+    text-align: center;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+
+.signup-page,
+.signin-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90%;
+}
+
+.signup-form-container-1,
+.signin-form-container-1 {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-form-container-2,
+.signin-form-container-2 {
+  padding: 10px 30px 20px;
+  border: 1px solid gray;
+}
+
+.signup-form-container-2 > h1,
+.signin-form-container-2 > h1 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+.signup-form-container-2 > form,
+.signin-form-container-2 > form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.9em;
+}
+
+input {
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 15em;
+  padding: 5px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  background-color: #274c9c;
+  padding: 7px 15px;
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: black;
+}
+
+.signup-img {
+  background-image: url('https://images.unsplash.com/photo-1600607687486-6cced9976e79');
+  min-height: 110vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+  position: relative;
+  z-index: -10;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-title h1 {
+        font-size: 6rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 2em;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 80%;
+        max-width: 300px;
+    }
 }

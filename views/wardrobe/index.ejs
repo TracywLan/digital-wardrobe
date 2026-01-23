@@ -3,21 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Your Wardrobe</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Your Wardrobe</h1>
-  <a href="/wardrobe/new">Add a New Item</a>
+  
+  <main>
+    <h1>Your Wardrobe</h1>
+    
+    <div class="wardrobe-controls">
+      <a href="/wardrobe/new">Add a New Item</a>
+      
+      <div class="filter-section">
+        <label for="category-filter">Filter by Category:</label>
+        <form method="GET" action="/wardrobe">
+          <select name="category" id="category-filter" onchange="this.form.submit()">
+            <option value="all" <%= selectedCategory === 'all' ? 'selected' : '' %>>All Items</option>
+            <% categories.forEach(category => { %>
+              <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>>
+                <%= category %>
+              </option>
+            <% }) %>
+          </select>
+        </form>
+      </div>
+    </div>
 
-  <ul>
-    <% wardrobe.forEach(item => { %>
-     
-      <li>
-        <img src="<%=  %>" alt="<%= item.name %>">
-      </li>
-    <% }) %>
-  </ul>
+    <% if (wardrobe.length === 0) { %>
+      <p>
+        <% if (selectedCategory !== 'all') { %>
+          No items found in this category. <a href="/wardrobe">View all items</a>
+        <% } else { %>
+          Your wardrobe is empty. Start adding items!
+        <% } %>
+      </p>
+    <% } else { %>
+      <% 
+        // Group items by category
+        let currentCategory = '';
+        wardrobe.forEach((item, index) => {
+          const isNewCategory = item.category !== currentCategory;
+          if (isNewCategory) {
+            if (index > 0) { %>
+              </ul>
+            <% } %>
+            <h2 class="category-header"><%= item.category %></h2>
+            <ul class="wardrobe-list">
+          <% 
+            currentCategory = item.category;
+          } 
+          %>
+          <li>
+            <a href="/wardrobe/<%= item._id %>">
+              <img 
+                src="<%= item.imageUrl || '/images/placeholder.png' %>" 
+                alt="<%= item.name %>"
+                onerror="this.src='/images/placeholder.png'"
+              >
+              <div>
+                <p><strong><%= item.name %></strong></p>
+              </div>
+            </a>
+          </li>
+        <% 
+        }); 
+        if (wardrobe.length > 0) { %>
+          </ul>
+        <% } %>
+    <% } %>
+  </main>
 </body>
 </html>

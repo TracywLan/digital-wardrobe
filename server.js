@@ -69,7 +69,6 @@ app.get('/', (req, res)=>{
 app.use('/auth', authController) ;
 
 //must be logged in
-
 app.use('/wardrobe', isSignedIn, wardrobeController);
 
 

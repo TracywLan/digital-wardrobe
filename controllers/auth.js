@@ -18,35 +18,9 @@ router.get("/sign-out", (req, res) => {
   });
 });
 
-router.post("/sign-in", async (req, res) => {
-  const username = req.body.username.charAt(0).toUpperCase() + req.body.username.slice(1);
-  const userInDB = await User.findOne({ username: req.body.username }).select('+password');
-  if (!userInDB) {
-    return res.send(
-      `A user with username ${req.body.username} does not exist.`
-    );
-  }
-
-  const isValidPassword = bcrypt.compareSync(
-    req.body.password,
-    userInDB.password
-  );
-  if (!isValidPassword) {
-    return res.send(`Password Incorrect`);
-  }
-
-  req.session.user = {
-    username: userInDB.username,
-    _id: userInDB._id,
-  };
-
-  req.session.save(() => {
-    res.redirect("/");
-  });
-});
-
 router.post("/sign-up", async (req, res) => {
-  const userInDB = await User.findOne({ username: req.body.username });
+  const username = req.body.username.charAt(0).toUpperCase() + req.body.username.slice(1);
+  const userInDB = await User.findOne({ username: username });
   if (userInDB) {
     return res.send(`A user with username ${req.body.username} already exist.`);
   }
@@ -56,9 +30,6 @@ router.post("/sign-up", async (req, res) => {
   }
 
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-  req.body.password = hashedPassword;
-
-  const username = req.body.username.charAt(0).toUpperCase() + req.body.username.slice(1);
   
   const newUser = await User.create({
     username: username,
@@ -75,6 +46,49 @@ router.post("/sign-up", async (req, res) => {
   req.session.save(() => {
     res.redirect("/wardrobe");
   });
+});
+
+router.post('/sign-in', async(req, res) => {
+  try {
+    const { username, password } = req.body;
+    
+    // Capitalize username to match sign-up format
+    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
+    
+    // Find user and include password field
+    const user = await User.findOne({ username: capitalizedUsername }).select('+password');
+    
+    // Check if user exists
+    if (!user) {
+      req.session.message = "Invalid username or password";
+      return req.session.save(() => res.redirect("/auth/sign-in"));
+    }
+    
+    // Compare passwords
+    const isPasswordValid = bcrypt.compareSync(password, user.password);
+    
+    if (!isPasswordValid) {
+      req.session.message = "Invalid username or password";
+      return req.session.save(() => res.redirect("/auth/sign-in"));
+    }
+    
+    // Set session user
+    req.session.user = {
+      username: user.username,
+      _id: user._id,
+    };
+    
+    req.session.message = `Welcome back, ${user.username}!`;
+    
+    req.session.save(() => {
+      res.redirect("/wardrobe");
+    });
+    
+  } catch (error) {
+    console.log(error);
+    req.session.message = "Sign-in failed: " + error.message;
+    req.session.save(() => res.redirect("/auth/sign-in"));
+  }
 });
 
 export default router;

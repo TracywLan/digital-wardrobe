@@ -20,7 +20,10 @@ import: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statem
 https://www.geeksforgeeks.org/
 
 ## Attributions
-Indyx, Whering, Acloset
+* Acloset
+* ChatGPT for logo and design ideas
+* MDN
+* https://www.geeksforgeeks.org/
 
 ## Next Steps
 **1. Building My Outfits**

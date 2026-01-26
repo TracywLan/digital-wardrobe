@@ -13,15 +13,24 @@ I've always had a hard time of keeping track of what I have in the closet and pi
 Deployed project link: https://digital-wardrobe-gsqa.onrender.com
 link to planning materials: https://trello.com/b/S0Pjgbqe
 
-
-## Attribute
-
-
 ## Technologies Used
 Javascript, HTML, CSS, Node.js, Express, MongoDB
 
 import: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 https://www.geeksforgeeks.org/
 
+## Attributions
+Indyx, Whering, Acloset
+
 ## Next Steps
-For my next step, I would like to add a build outfit function. I would like to be able to add clothing pieces from my wardrobe and build and save outfits. I would be able to quickly access looks that I wear often and make the outfit picking process much easier. I also want to add a community section so that other people can share their outfit builds in the community and others users can like and follow that user, as well as be inspired by different users looks.
+**1. Building My Outfits**
+* I want to play around with my clothes and put together full outfits right in the app.
+* When I make a look I love, I want to save it so I don't forget it.
+* I want to see my "go-to" outfits instantly so I can get dressed faster.
+* Basically, I want to make picking out clothes way less of a headache.
+* Be able to handle dress
+
+**2. The Community**
+* I want a space to share my best outfit creations with everyone else.
+* I want to be able to follow other users and "like" their looks.
+* I want to scroll through a feed of other people's outfits to get new ideas for my own closet.

@@ -73,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.getElementById('category');
     if (categorySelect) {
 
-        updateSubtypes(); 
+        updateSubtypes(); // Run immediately when page opens
         
-        categorySelect.addEventListener('change', updateSubtypes);
+        categorySelect.addEventListener('change', updateSubtypes); // Run when the user changes the category
     }
 });

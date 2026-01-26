@@ -1,5 +1,5 @@
-### Logo: public/images/what2wear_logo.png
-
+### Logo: 
+![what2wear_logo](images/what2wear_logo.png)
 
 
 ### Name: What2Wear
@@ -21,7 +21,7 @@ link to planning materials: https://trello.com/b/S0Pjgbqe
 Javascript, HTML, CSS, Node.js, Express, MongoDB
 
 import: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-
+https://www.geeksforgeeks.org/
 
 ## Next Steps
 For my next step, I would like to add a build outfit function. I would like to be able to add clothing pieces from my wardrobe and build and save outfits. I would be able to quickly access looks that I wear often and make the outfit picking process much easier. I also want to add a community section so that other people can share their outfit builds in the community and others users can like and follow that user, as well as be inspired by different users looks.

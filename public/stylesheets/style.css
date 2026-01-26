@@ -706,7 +706,7 @@ main > p a {
     margin-bottom: 15px;
 }
 
-.auth-sparkle {
+.sparkle {
     font-size: 1.5rem;
     color: var(--dark-grey);
     opacity: 0.4;
@@ -800,109 +800,3 @@ main > p a {
 .auth-btn-primary:hover::after {
     transform: translateX(5px);
 }
-
-
-/* .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(61, 52, 54, 0.75);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background: var(--bg-pink);
-    border: 2px solid var(--dark-grey);
-    border-radius: 12px;
-    padding: 0;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(61, 52, 54, 0.4);
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-content::before {
-    content: '';
-    position: absolute;
-    top: -6px; left: -6px; right: -6px; bottom: -6px;
-    border: 1px solid var(--dark-grey);
-    border-radius: 14px;
-    pointer-events: none;
-}
-
-.modal-header {
-    padding: 30px 40px 20px;
-    border-bottom: 1px dashed var(--dark-grey);
-}
-
-.modal-header h2 {
-    font-family: 'Tangerine', cursive;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #8b4f4f;
-    margin: 0;
-    text-align: center;
-}
-
-.modal-body {
-    padding: 30px 40px;
-    text-align: center;
-}
-
-.modal-body p {
-    font-size: 1.1rem;
-    color: var(--dark-grey);
-    margin: 0 0 15px 0;
-    line-height: 1.6;
-}
-
-.modal-body strong {
-    font-family: 'Parisienne', cursive;
-    font-size: 1.3rem;
-    font-weight: 400;
-}
-
-.modal-warning {
-    font-style: italic;
-    font-size: 0.95rem !important;
-    color: #8b4f4f;
-    opacity: 0.8;
-}
-
-.modal-actions {
-    padding: 20px 40px 30px;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    border-top: 1px dashed var(--dark-grey);
-}
-
-.modal-btn-delete,
-.modal-btn-cancel {
-    padding: 12px 30px;
-    font-size: 1.2rem;
-    font-family: 'Parisienne', cursive;
-    border-radius: 8px;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s;
-    border: 2px solid;
-    flex: 1;
-    max-width: 180px;
-} */

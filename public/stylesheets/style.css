@@ -1,6 +1,3 @@
-/* =========================================
-   1. IMPORTS & VARIABLES
-   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Tangerine:wght@400;700&display=swap');
 
 :root {
@@ -8,9 +5,6 @@
     --dark-grey: #3d3436;
 }
 
-/* =========================================
-   2. RESET & BASE STYLES
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -64,9 +58,6 @@ main > a:hover,
     opacity: 0.7;
 }
 
-/* =========================================
-   3. NAVIGATION & HEADER
-   ========================================= */
 .landing-header {
     display: flex;
     justify-content: space-between;
@@ -118,10 +109,6 @@ nav {
     opacity: 0.7;
 }
 
-/* =========================================
-   4. DECORATIVE ELEMENTS
-   ========================================= */
-/* Scalloped Borders */
 .top-border, 
 .bottom-border {
     width: 100%;
@@ -149,11 +136,6 @@ nav {
     margin-top: auto;
 }
 
-
-/* =========================================
-   5. SHARED COMPONENTS & BUTTONS
-   ========================================= */
-/* Base Button Style */
 .btn, 
 .wardrobe-add-btn,
 .btn-primary, 
@@ -173,7 +155,6 @@ nav {
     color: var(--dark-grey);
 }
 
-/* Decorative inner border for buttons */
 .btn::before, 
 .wardrobe-add-btn::before,
 .btn-primary::before, 
@@ -189,7 +170,7 @@ nav {
     pointer-events: none;
 }
 
-/* Hover Effects */
+
 .btn:hover, 
 .wardrobe-add-btn:hover,
 .btn-secondary:hover,
@@ -198,7 +179,6 @@ nav {
     background-color: rgba(61, 52, 54, 0.05);
 }
 
-/* Landing Page Buttons */
 .button-group {
     display: flex;
     justify-content: center;
@@ -219,9 +199,6 @@ nav {
 }
 
 
-/* =========================================
-   6. FORMS (GENERAL)
-   ========================================= */
 .form-page {
     min-height: calc(100vh - 100px);
     display: flex;
@@ -358,9 +335,6 @@ nav {
     box-shadow: 0 4px 12px rgba(61, 52, 54, 0.2);
 }
 
-/* =========================================
-   7. PAGE: LANDING
-   ========================================= */
 .main-title {
     display: flex;
     flex-direction: column;
@@ -390,9 +364,6 @@ nav {
     text-align: center;
 }
 
-/* =========================================
-   8. PAGE: WARDROBE (GRID & LIST)
-   ========================================= */
 .wardrobe-page {
     max-width: 1400px;
     margin: 0 auto;
@@ -440,7 +411,6 @@ nav {
     font-size: 1.4rem;
 }
 
-/* Filters */
 .wardrobe-filter-section,
 .filter-section {
     display: flex;
@@ -480,7 +450,6 @@ nav {
     box-shadow: 0 0 0 3px rgba(61, 52, 54, 0.1);
 }
 
-/* Category Sections */
 .wardrobe-category-section,
 .category-header {
     margin-bottom: 80px;
@@ -509,7 +478,6 @@ nav {
     opacity: 0.3;
 }
 
-/* Grid & Items */
 .wardrobe-items-grid,
 .wardrobe-list {
     display: grid;
@@ -555,7 +523,6 @@ nav {
     text-align: center;
 }
 
-/* Empty State */
 .wardrobe-empty-state,
 main > p {
     text-align: center;
@@ -577,9 +544,6 @@ main > p a {
     opacity: 0.7;
 }
 
-/* =========================================
-   9. PAGE: ITEM DETAIL
-   ========================================= */
 .item-detail {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -628,7 +592,6 @@ main > p a {
     margin-right: 10px;
 }
 
-/* Actions (Edit/Delete) */
 .actions {
     display: flex;
     justify-content: center;
@@ -645,7 +608,7 @@ main > p a {
 
 .actions a button::after { content: ' ✎'; }
 
-/* Delete Specifics */
+
 .actions form button,
 .btn-delete {
     border-color: #8b4f4f;
@@ -664,10 +627,6 @@ main > p a {
     background-color: rgba(139, 79, 79, 0.05);
 }
 
-/* =========================================
-   10. PAGE: AUTHENTICATION (LOGIN/SIGNUP)
-   ========================================= */
-/* Legacy Auth Styles */
 .signup-page,
 .signin-page {
     display: flex;
@@ -705,7 +664,7 @@ main > p a {
     flex-direction: column;
 }
 
-/* Modern Auth Styles */
+
 .auth-page {
     min-height: calc(100vh - 100px);
     display: flex;
@@ -842,10 +801,8 @@ main > p a {
     transform: translateX(5px);
 }
 
-/* =========================================
-   11. MODALS
-   ========================================= */
-.modal-overlay {
+
+/* .modal-overlay {
     display: none;
     position: fixed;
     top: 0; left: 0;
@@ -948,124 +905,4 @@ main > p a {
     border: 2px solid;
     flex: 1;
     max-width: 180px;
-}
-
-.modal-btn-delete {
-    background: #8b4f4f;
-    color: var(--bg-pink);
-    border-color: #8b4f4f;
-}
-
-.modal-btn-delete:hover {
-    background: #6d3d3d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 79, 79, 0.3);
-}
-
-.modal-btn-delete::before {
-    content: '';
-    position: absolute;
-    top: -5px; left: -5px; right: -5px; bottom: -5px;
-    border: 1px solid #8b4f4f;
-    border-radius: 10px;
-    pointer-events: none;
-}
-
-.modal-btn-cancel {
-    background: transparent;
-    color: var(--dark-grey);
-    border-color: var(--dark-grey);
-}
-
-.modal-btn-cancel::before {
-    content: '';
-    position: absolute;
-    top: -5px; left: -5px; right: -5px; bottom: -5px;
-    border: 1px solid var(--dark-grey);
-    border-radius: 10px;
-    pointer-events: none;
-}
-
-.modal-btn-cancel:hover {
-    background: rgba(61, 52, 54, 0.05);
-}
-
-/* =========================================
-   12. RESPONSIVE DESIGN (MEDIA QUERIES)
-   ========================================= */
-/* Tablet & Small Desktop (Max 768px) */
-@media (max-width: 768px) {
-    .landing-header {
-        padding: 20px;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .main-title h1 {
-        font-size: 6rem;
-    }
-    
-    .button-group {
-        flex-direction: column;
-        gap: 2em;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 80%;
-        max-width: 300px;
-    }
-
-    .form-container {
-        padding: 40px 30px;
-    }
-    
-    .form-container h1 {
-        font-size: 3rem;
-    }
-    
-    .form-grid,
-    .item-detail {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-        gap: 1em;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Mobile (Max 480px) */
-@media (max-width: 480px) {
-    .form-page {
-        padding: 40px 15px;
-    }
-    
-    .form-container {
-        padding: 30px 20px;
-    }
-    
-    .form-container h1 {
-        font-size: 2.5rem;
-    }
-    
-    .form-group input[type="text"],
-    .form-group select,
-    .form-group textarea {
-        padding: 10px 12px;
-        font-size: 0.95rem;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        font-size: 1.2rem;
-        padding: 12px 30px;
-    }
-}
+} */

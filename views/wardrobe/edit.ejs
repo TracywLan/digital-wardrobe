@@ -57,19 +57,31 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="subtype">Sub-Category *</label>
+                        
+                        <select id="subtype" name="subtype" required data-saved="<%= item.subtype %>">
+                            </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="color">Color *</label>
                         <select id="color" name="color" required>
-                            <option value="">Select a color</option>
-                            <option value="black" <%= item.color === 'black' ? 'selected' : '' %>>Black</option>
-                            <option value="white" <%= item.color === 'white' ? 'selected' : '' %>>White</option>
-                            <option value="gray" <%= item.color === 'gray' ? 'selected' : '' %>>Gray</option>
-                            <option value="blue" <%= item.color === 'blue' ? 'selected' : '' %>>Blue</option>
-                            <option value="red" <%= item.color === 'red' ? 'selected' : '' %>>Red</option>
-                            <option value="green" <%= item.color === 'green' ? 'selected' : '' %>>Green</option>
-                            <option value="brown" <%= item.color === 'brown' ? 'selected' : '' %>>Brown</option>
-                            <option value="beige" <%= item.color === 'beige' ? 'selected' : '' %>>Beige</option>
-                            <option value="navy" <%= item.color === 'navy' ? 'selected' : '' %>>Navy</option>
-                            <option value="pink" <%= item.color === 'pink' ? 'selected' : '' %>>Pink</option>
+                            <option value="black" <%= item.color === 'black' ? 'selected' : '' %>>⚫ Black</option>
+                            <option value="white" <%= item.color === 'white' ? 'selected' : '' %>>⚪ White</option>
+                            <option value="gray" <%= item.color === 'gray' ? 'selected' : '' %>>🔘 Gray</option>
+                            <option value="blue" <%= item.color === 'blue' ? 'selected' : '' %>>🔵 Blue</option>
+                            <option value="red" <%= item.color === 'red' ? 'selected' : '' %>>🔴 Red</option>
+                            <option value="green" <%= item.color === 'green' ? 'selected' : '' %>>🟢 Green</option>
+                            <option value="brown" <%= item.color === 'brown' ? 'selected' : '' %>>🟤 Brown</option>
+                            <option value="beige" <%= item.color === 'beige' ? 'selected' : '' %>>🥯 Beige</option>
+                            <option value="navy" <%= item.color === 'navy' ? 'selected' : '' %>>🌑 Navy</option>
+                            <option value="pink" <%= item.color === 'pink' ? 'selected' : '' %>>🌸 Pink</option>
+                            <option value="purple" <%= item.color === 'purple' ? 'selected' : '' %>>🟣 Purple</option>
+                            <option value="yellow" <%= item.color === 'yellow' ? 'selected' : '' %>>🟡 Yellow</option>
+                            <option value="orange" <%= item.color === 'orange' ? 'selected' : '' %>>🟠 Orange</option>
+                            <option value="pattern" <%= item.color === 'pattern' ? 'selected' : '' %>>🏁 Pattern</option>
+                            <option value="print" <%= item.color === 'print' ? 'selected' : '' %>>🎨 Print</option>
+                            <option value="multi" <%= item.color === 'multi' ? 'selected' : '' %>>🌈 Multi-color</option>
                         </select>
                     </div>
 
@@ -127,65 +139,7 @@
                     <a href="/wardrobe/<%= item._id %>" class="btn-secondary">Cancel</a>
                 </div>
             </form>
-            
-            <!-- Separate Delete Section -->
-            <div class="delete-section">
-                <div class="delete-divider"></div>
-                <div class="delete-form">
-                    <button 
-                        type="button" 
-                        class="btn-delete"
-                        onclick="openDeleteModal()">
-                        Delete Item ✕
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Delete Confirmation Modal -->
-    <div id="deleteModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Delete Item?</h2>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to permanently delete "<strong><%= item.name %></strong>"?</p>
-                <p class="modal-warning">This action cannot be undone.</p>
-            </div>
-            <div class="modal-actions">
-                <form action="/wardrobe/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
-                    <button type="submit" class="modal-btn-delete">Yes, Delete</button>
-                </form>
-                <button type="button" class="modal-btn-cancel" onclick="closeDeleteModal()">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openDeleteModal() {
-            document.getElementById('deleteModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeDeleteModal() {
-            document.getElementById('deleteModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('deleteModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeDeleteModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeDeleteModal();
-            }
-        });
-    </script>
+<script src="/js/wardrobe-form.js"></script>
 </body>
 </html>

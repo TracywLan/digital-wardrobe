@@ -1,3 +1,6 @@
+/* =========================================
+   1. IMPORTS & VARIABLES
+   ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Tangerine:wght@400;700&display=swap');
 
 :root {
@@ -5,6 +8,9 @@
     --dark-grey: #3d3436;
 }
 
+/* =========================================
+   2. RESET & BASE STYLES
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +26,47 @@ body {
     flex-direction: column;
 }
 
-/* Header with logo and nav */
+a {
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 60px;
+    min-height: calc(100vh - 200px);
+}
+
+main > h1 {
+    font-family: 'Tangerine', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0 50px 0;
+    color: var(--dark-grey);
+}
+
+main > a, 
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--dark-grey);
+    text-decoration: none;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    transition: opacity 0.3s;
+}
+
+main > a:hover, 
+.back-link:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   3. NAVIGATION & HEADER
+   ========================================= */
 .landing-header {
     display: flex;
     justify-content: space-between;
@@ -72,29 +118,23 @@ nav {
     opacity: 0.7;
 }
 
-/* Decorative top border with scalloped pattern */
-.top-border {
+/* =========================================
+   4. DECORATIVE ELEMENTS
+   ========================================= */
+/* Scalloped Borders */
+.top-border, 
+.bottom-border {
     width: 100%;
     height: 60px;
+}
+
+.top-border {
     margin-top: 40px;
-    background-image: 
-        radial-gradient(circle at 5% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 15% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 25% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 35% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 45% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 55% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 65% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 75% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 85% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 95% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px);
-    background-size: 10% 100%;
-    background-repeat: repeat-x;
     position: relative;
 }
 
 .top-border::before {
-    content: '✦ ✦   It is a secret the stars alone hold   that I kissed you in my dream.   ✦ ✦';
+    content: '✦  The Bow on Top of Your Daily Routine.   ✦';
     position: absolute;
     top: -30px;
     left: 50%;
@@ -105,6 +145,222 @@ nav {
     white-space: nowrap;
 }
 
+.bottom-border {
+    margin-top: auto;
+}
+
+
+/* =========================================
+   5. SHARED COMPONENTS & BUTTONS
+   ========================================= */
+/* Base Button Style */
+.btn, 
+.wardrobe-add-btn,
+.btn-primary, 
+.btn-secondary,
+.actions button,
+.btn-delete,
+.wardrobe-controls > a {
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    border: 2px solid var(--dark-grey);
+    border-radius: 8px;
+    font-family: 'Parisienne', cursive;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    color: var(--dark-grey);
+}
+
+/* Decorative inner border for buttons */
+.btn::before, 
+.wardrobe-add-btn::before,
+.btn-primary::before, 
+.btn-secondary::before,
+.actions button::before,
+.btn-delete::before,
+.wardrobe-controls > a::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+/* Hover Effects */
+.btn:hover, 
+.wardrobe-add-btn:hover,
+.btn-secondary:hover,
+.actions button:hover,
+.wardrobe-controls > a:hover {
+    background-color: rgba(61, 52, 54, 0.05);
+}
+
+/* Landing Page Buttons */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    margin: 50px 0;
+}
+
+.btn {
+    padding: 18px 50px;
+    font-size: 1.8rem;
+}
+
+.btn a {
+    font-family: 'Parisienne', cursive;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
+
+/* =========================================
+   6. FORMS (GENERAL)
+   ========================================= */
+.form-page {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.form-container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--dark-grey);
+    border-radius: 12px;
+    padding: 50px 60px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(61, 52, 54, 0.1);
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+.form-container h1 {
+    font-family: 'Tangerine', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0 20px 0;
+    color: var(--dark-grey);
+}
+
+.form-decorative-line {
+    width: 150px;
+    height: 2px;
+    background: var(--dark-grey);
+    margin: 0 auto 40px;
+    opacity: 0.3;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-family: 'Parisienne', cursive;
+    font-size: 1.3rem;
+    color: var(--dark-grey);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.form-group label:has(+ input[required])::after,
+.form-group label:has(+ select[required])::after {
+    content: ' *';
+    color: #8b4f4f;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid var(--dark-grey);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    color: var(--dark-grey);
+    transition: all 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(61, 52, 54, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.form-group small {
+    font-size: 0.85rem;
+    color: var(--dark-grey);
+    opacity: 0.6;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--dark-grey);
+}
+
+.btn-primary, 
+.btn-secondary {
+    padding: 15px 45px;
+    font-size: 1.4rem;
+}
+
+.btn-primary {
+    background: var(--dark-grey);
+    color: var(--bg-pink);
+    border-color: var(--dark-grey);
+}
+
+.btn-primary:hover {
+    background: #2a2224;
+    box-shadow: 0 4px 12px rgba(61, 52, 54, 0.2);
+}
+
+/* =========================================
+   7. PAGE: LANDING
+   ========================================= */
 .main-title {
     display: flex;
     flex-direction: column;
@@ -125,16 +381,6 @@ nav {
     position: relative;
 }
 
-/* Ribbon decoration on the title */
-/* .main-title h1::after {
-    content: '🎀';
-    position: absolute;
-    right: -100px;
-    top: -30px;
-    font-size: 4rem;
-    opacity: 0.4;
-} */
-
 .quote-center {
     font-style: italic;
     font-size: 1.1rem;
@@ -144,193 +390,617 @@ nav {
     text-align: center;
 }
 
-/* Heart with arrow */
-.heart-icon {
-    font-size: 100px;
-    margin: 50px 0;
-    position: relative;
-    display: inline-block;
+/* =========================================
+   8. PAGE: WARDROBE (GRID & LIST)
+   ========================================= */
+.wardrobe-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 60px 80px;
+    min-height: calc(100vh - 100px);
 }
 
-.heart-icon::before {
-    /* content: '♥'; */
+.wardrobe-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.wardrobe-header h1 {
+    font-family: 'Tangerine', cursive;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin: 0 0 20px 0;
+}
+
+.wardrobe-decorative-line {
+    width: 200px;
+    height: 2px;
+    background: var(--dark-grey);
+    margin: 0 auto;
+    opacity: 0.3;
+}
+
+.wardrobe-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 60px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid var(--dark-grey);
+    border-radius: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.wardrobe-add-btn,
+.wardrobe-controls > a {
+    padding: 12px 35px;
+    font-size: 1.4rem;
+}
+
+/* Filters */
+.wardrobe-filter-section,
+.filter-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wardrobe-filter-section label,
+.filter-section label {
+    font-style: italic;
+    font-size: 1rem;
     color: var(--dark-grey);
 }
 
-.heart-icon::after {
-    content: '➵';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: 100px;
-    font-weight: 100;
-}
-
-/* Button styling */
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 5em;
-    margin: 50px 0;
-}
-
-.btn {
-    background: transparent;
+.wardrobe-filter-section select,
+.filter-section select {
+    background: rgba(255, 255, 255, 0.8);
     border: 2px solid var(--dark-grey);
-    padding: 18px 50px;
-    font-size: 1.8rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    color: var(--dark-grey);
+    border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s;
+    min-width: 180px;
+}
+
+.wardrobe-filter-section select:hover,
+.filter-section select:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.wardrobe-filter-section select:focus,
+.filter-section select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(61, 52, 54, 0.1);
+}
+
+/* Category Sections */
+.wardrobe-category-section,
+.category-header {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.wardrobe-category-title,
+.category-header {
+    font-family: 'Tangerine', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin: 0 0 40px 0;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.wardrobe-category-title::after,
+.category-header::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 1px;
+    background: var(--dark-grey);
+    margin: 15px auto 0;
+    opacity: 0.3;
+}
+
+/* Grid & Items */
+.wardrobe-items-grid,
+.wardrobe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 35px;
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 80px 0;
+}
+
+
+.wardrobe-item-link,
+.wardrobe-list li a {
+    display: block;
+    text-decoration: none;
+    color: var(--dark-grey);
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--dark-grey);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.wardrobe-item-link:hover,
+.wardrobe-list li a:hover {
+    box-shadow: 0 10px 30px rgba(61, 52, 54, 0.2);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.wardrobe-item-image,
+.wardrobe-list li img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+    border-bottom: 1px solid var(--dark-grey);
+}
+
+.wardrobe-list li div {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Empty State */
+.wardrobe-empty-state,
+main > p {
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--dark-grey);
+    opacity: 0.7;
+}
+
+.wardrobe-empty-state a,
+main > p a {
+    color: var(--dark-grey);
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.wardrobe-empty-state a:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   9. PAGE: ITEM DETAIL
+   ========================================= */
+.item-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin: 40px 0 60px 0;
+    align-items: start;
+}
+
+.item-detail img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 2px solid var(--dark-grey);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(61, 52, 54, 0.1);
+    justify-self: center;
+}
+
+.item-info {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    border: 2px solid var(--dark-grey);
     border-radius: 8px;
     position: relative;
-    text-decoration: none;
-    transition: all 0.3s;
 }
 
-.btn:hover {
-    background-color: rgba(61, 52, 54, 0.05);
-    transform: translateY(-2px);
-}
-
-.btn a {
-    font-family: 'Parisienne', cursive;
-    font-weight: 400;
-    text-decoration: none;
-    color: var(--dark-grey);
-}
-
-/* Ornate button corners */
-.btn::before {
+.item-info::before {
     content: '';
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
     border: 1px solid var(--dark-grey);
     border-radius: 10px;
     pointer-events: none;
 }
 
-/* Add icons to buttons */
-.btn:first-child a::before {
-    content: '👗 ';
+.item-info p {
+    margin: 20px 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
-.btn:last-child a::after {
-    content: ' ✦';
+.item-info strong {
+    font-family: 'Parisienne', cursive;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-right: 10px;
 }
 
-/* Bottom decorative border */
-.bottom-border {
-    width: 100%;
-    height: 60px;
-    margin-top: auto;
-    background-image: 
-        radial-gradient(circle at 5% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 15% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 25% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 35% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 45% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 55% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 65% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 75% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 85% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px),
-        radial-gradient(circle at 95% 50%, transparent 8px, var(--dark-grey) 8px, var(--dark-grey) 8.5px, transparent 8.5px);
-    background-size: 10% 100%;
-    background-repeat: repeat-x;
+/* Actions (Edit/Delete) */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin: 60px 0 40px 0;
+    padding-top: 40px;
+    border-top: 1px dashed var(--dark-grey);
 }
 
-.footer {
-    font-size: 0.7rem;
-    padding: 30px;
-    text-align: center;
-    opacity: 0.6;
-    font-style: italic;
+.actions button {
+    padding: 15px 40px;
+    font-size: 1.3rem;
 }
 
-a {
-    text-decoration: none;
-    color: var(--dark-grey);
+.actions a button::after { content: ' ✎'; }
+
+/* Delete Specifics */
+.actions form button,
+.btn-delete {
+    border-color: #8b4f4f;
+    color: #8b4f4f;
 }
 
+.actions form button::before,
+.btn-delete::before {
+    border-color: #8b4f4f;
+}
 
+.actions form button::after { content: ' ✕'; }
+
+.actions form button:hover,
+.btn-delete:hover {
+    background-color: rgba(139, 79, 79, 0.05);
+}
+
+/* =========================================
+   10. PAGE: AUTHENTICATION (LOGIN/SIGNUP)
+   ========================================= */
+/* Legacy Auth Styles */
 .signup-page,
 .signin-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
 }
 
 .signup-form-container-1,
 .signin-form-container-1 {
-  width: 60%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup-form-container-2,
 .signin-form-container-2 {
-  padding: 10px 30px 20px;
-  border: 1px solid gray;
+    padding: 10px 30px 20px;
+    border: 1px solid gray;
 }
 
 .signup-form-container-2 > h1,
 .signin-form-container-2 > h1 {
-  font-weight: normal;
-  text-transform: uppercase;
-  font-size: 1.5em;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 1.5em;
 }
 
 .signup-form-container-2 > form,
 .signin-form-container-2 > form {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-label {
-  font-size: 0.9em;
+/* Modern Auth Styles */
+.auth-page {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(61, 52, 54, 0.05) 100%);
 }
 
-input {
-  border: 1px solid rgb(190, 190, 190);
-  border-radius: 10px;
-  margin: 10px 0;
-  width: 15em;
-  padding: 5px;
+.auth-container {
+    max-width: 480px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid var(--dark-grey);
+    border-radius: 12px;
+    padding: 50px 50px 40px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(61, 52, 54, 0.15);
 }
 
-button {
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  background-color: #274c9c;
-  padding: 7px 15px;
-  margin: 10px 0;
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 14px;
+    pointer-events: none;
 }
 
-button:hover {
-  background-color: black;
+.auth-switch {
+    margin-top: 15px;
 }
 
-.signup-img {
-  background-image: url('https://images.unsplash.com/photo-1600607687486-6cced9976e79');
-  min-height: 110vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 40%;
-  position: relative;
-  z-index: -10;
+.auth-decorative-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
 }
 
+.auth-sparkle {
+    font-size: 1.5rem;
+    color: var(--dark-grey);
+    opacity: 0.4;
+    animation: sparkle 2s ease-in-out infinite;
+}
 
-/* Responsive adjustments */
+@keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.auth-decorative-header h1 {
+    font-family: 'Tangerine', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    margin: 0;
+    text-align: center;
+}
+
+.auth-subtitle {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--dark-grey);
+    margin: 0 0 25px 0;
+    opacity: 0.8;
+}
+
+.auth-form-group {
+    margin-bottom: 25px;
+}
+
+.auth-form-group label {
+    display: block;
+    font-family: 'Parisienne', cursive;
+    font-size: 1.3rem;
+    color: var(--dark-grey);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.auth-form-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--dark-grey);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    color: var(--dark-grey);
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.auth-btn-primary {
+    width: 100%;
+    padding: 16px 30px;
+    font-size: 1.4rem;
+    font-family: 'Parisienne', cursive;
+    background: var(--dark-grey);
+    color: var(--bg-pink);
+    border: 2px solid var(--dark-grey);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.auth-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.auth-btn-primary::after {
+    content: ' →';
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.auth-btn-primary:hover {
+    background: #2a2224;
+    box-shadow: 0 6px 20px rgba(61, 52, 54, 0.25);
+}
+
+.auth-btn-primary:hover::after {
+    transform: translateX(5px);
+}
+
+/* =========================================
+   11. MODALS
+   ========================================= */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(61, 52, 54, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: var(--bg-pink);
+    border: 2px solid var(--dark-grey);
+    border-radius: 12px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(61, 52, 54, 0.4);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+.modal-header {
+    padding: 30px 40px 20px;
+    border-bottom: 1px dashed var(--dark-grey);
+}
+
+.modal-header h2 {
+    font-family: 'Tangerine', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #8b4f4f;
+    margin: 0;
+    text-align: center;
+}
+
+.modal-body {
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: 1.1rem;
+    color: var(--dark-grey);
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+.modal-body strong {
+    font-family: 'Parisienne', cursive;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.modal-warning {
+    font-style: italic;
+    font-size: 0.95rem !important;
+    color: #8b4f4f;
+    opacity: 0.8;
+}
+
+.modal-actions {
+    padding: 20px 40px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    border-top: 1px dashed var(--dark-grey);
+}
+
+.modal-btn-delete,
+.modal-btn-cancel {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-family: 'Parisienne', cursive;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    border: 2px solid;
+    flex: 1;
+    max-width: 180px;
+}
+
+.modal-btn-delete {
+    background: #8b4f4f;
+    color: var(--bg-pink);
+    border-color: #8b4f4f;
+}
+
+.modal-btn-delete:hover {
+    background: #6d3d3d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 79, 79, 0.3);
+}
+
+.modal-btn-delete::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid #8b4f4f;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.modal-btn-cancel {
+    background: transparent;
+    color: var(--dark-grey);
+    border-color: var(--dark-grey);
+}
+
+.modal-btn-cancel::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid var(--dark-grey);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.modal-btn-cancel:hover {
+    background: rgba(61, 52, 54, 0.05);
+}
+
+/* =========================================
+   12. RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================= */
+/* Tablet & Small Desktop (Max 768px) */
 @media (max-width: 768px) {
+    .landing-header {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .main-title h1 {
         font-size: 6rem;
     }
@@ -344,5 +1014,58 @@ button:hover {
     .btn {
         width: 80%;
         max-width: 300px;
+    }
+
+    .form-container {
+        padding: 40px 30px;
+    }
+    
+    .form-container h1 {
+        font-size: 3rem;
+    }
+    
+    .form-grid,
+    .item-detail {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Mobile (Max 480px) */
+@media (max-width: 480px) {
+    .form-page {
+        padding: 40px 15px;
+    }
+    
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-container h1 {
+        font-size: 2.5rem;
+    }
+    
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        font-size: 1.2rem;
+        padding: 12px 30px;
     }
 }

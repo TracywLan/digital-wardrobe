@@ -9,13 +9,16 @@
 <body>
   <%- include('../partials/_navbar.ejs') %>
   
-  <main>
-    <h1>Your Wardrobe</h1>
+  <div class="wardrobe-page">
+    <div class="wardrobe-header">
+      <h1>Your Wardrobe</h1>
+      <div class="wardrobe-decorative-line"></div>
+    </div>
     
     <div class="wardrobe-controls">
-      <a href="/wardrobe/new">Add a New Item</a>
+      <a href="/wardrobe/new" class="wardrobe-add-btn">Add New Item ✦</a>
       
-      <div class="filter-section">
+      <div class="wardrobe-filter-section">
         <label for="category-filter">Filter by Category:</label>
         <form method="GET" action="/wardrobe">
           <select name="category" id="category-filter" onchange="this.form.submit()">
@@ -30,48 +33,62 @@
       </div>
     </div>
 
-    <% if (wardrobe.length === 0) { %>
-      <p>
-        <% if (selectedCategory !== 'all') { %>
-          No items found in this category. <a href="/wardrobe">View all items</a>
-        <% } else { %>
-          Your wardrobe is empty. Start adding items!
-        <% } %>
-      </p>
-    <% } else { %>
-      <% 
-        // Group items by category
-        let currentCategory = '';
-        wardrobe.forEach((item, index) => {
-          const isNewCategory = item.category !== currentCategory;
-          if (isNewCategory) {
-            if (index > 0) { %>
-              </ul>
+    <div class="wardrobe-content">
+      <% if (wardrobe.length === 0) { %>
+        <div class="wardrobe-empty-state">
+          <p>
+            <% if (selectedCategory !== 'all') { %>
+              No items found in this category. <a href="/wardrobe">View all items</a>
+            <% } else { %>
+              Your wardrobe is empty. Start adding items!
             <% } %>
-            <h2 class="category-header"><%= item.category %></h2>
-            <ul class="wardrobe-list">
-          <% 
-            currentCategory = item.category;
-          } 
-          %>
-          <li>
-            <a href="/wardrobe/<%= item._id %>">
-              <img 
-                src="<%= item.imageUrl || '/images/placeholder.png' %>" 
-                alt="<%= item.name %>"
-                onerror="this.src='/images/placeholder.png'"
-              >
-              <div>
-                <p><strong><%= item.name %></strong></p>
-              </div>
-            </a>
-          </li>
+          </p>
+        </div>
+      <% } else { %>
         <% 
-        }); 
-        if (wardrobe.length > 0) { %>
-          </ul>
-        <% } %>
-    <% } %>
-  </main>
+          let currentCategory = '';
+          wardrobe.forEach((item, index) => {
+            const isNewCategory = item.category !== currentCategory;
+            if (isNewCategory) {
+              if (index > 0) { %>
+                </div>
+              <% } %>
+              <div class="wardrobe-category-section">
+                <h2 class="wardrobe-category-title"><%= item.category %></h2>
+                <div class="wardrobe-items-grid">
+            <% 
+              currentCategory = item.category;
+            } 
+            %>
+            <div class="wardrobe-item-card">
+              <a href="/wardrobe/<%= item._id %>" class="wardrobe-item-link">
+                <div class="wardrobe-item-image-wrapper">
+                  <img 
+                    src="<%= item.imageUrl || '/images/placeholder.png' %>" 
+                    alt="<%= item.name %>"
+                    class="wardrobe-item-image"
+                    onerror="this.src='/images/placeholder.png'"
+                  >
+                  <div class="wardrobe-item-overlay">
+                    <span class="wardrobe-item-view-text">View Details</span>
+                  </div>
+                </div>
+                <div class="wardrobe-item-info">
+                  <p class="wardrobe-item-name"><%= item.name %></p>
+                  <% if (item.brand) { %>
+                    <p class="wardrobe-item-brand"><%= item.brand %></p>
+                  <% } %>
+                </div>
+              </a>
+            </div>
+          <% 
+          }); 
+          if (wardrobe.length > 0) { %>
+                </div>
+              </div>
+          <% } %>
+      <% } %>
+    </div>
+  </div>
 </body>
 </html>

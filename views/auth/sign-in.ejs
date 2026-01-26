@@ -3,26 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In</title>
+  <title>Sign In - What2Wear</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="signin-page">
-    <div class="signin-img"></div>
-    <div class="signin-form-container-1">
-      <div class="signin-form-container-2">
-        <h1>Sign in</h1>
-        <form action="/auth/sign-in" method="POST">
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username" required />
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" required />
-          <button type="submit">Sign in</button>
-        </form>
+  
+  <div class="auth-page">
+    <div class="auth-container">
+      <div class="auth-decorative-header">
+        <div class="auth-sparkle">✦</div>
+        <h1>Welcome Back</h1>
+        <div class="auth-sparkle">✦</div>
       </div>
+      
+      <p class="auth-subtitle">Sign in to your wardrobe</p>
+      
+      <div class="auth-decorative-line"></div>
+      
+      <form action="/auth/sign-in" method="POST" class="auth-form">
+        <div class="auth-form-group">
+          <label for="username">Username</label>
+          <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            placeholder="Enter your username"
+            required 
+            autocomplete="username"
+          />
+        </div>
+        
+        <div class="auth-form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            placeholder="Enter your password"
+            required 
+            autocomplete="current-password"
+          />
+        </div>
+        
+        <button type="submit" class="auth-btn-primary">Sign In</button>
+      </form>
+    
+      <p class="auth-switch">
+        Don't have an account? <a href="/auth/sign-up">Create one</a>
+      </p>
     </div>
   </div>
 </body>
-
 </html>

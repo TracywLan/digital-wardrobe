@@ -8,78 +8,184 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <div class="new-container">
-        <div class="container">
+    
+    <div class="form-page">
+        <div class="form-container">
+            <a href="/wardrobe/<%= item._id %>" class="back-link">← Back to Item</a>
+            
             <h1>Edit Wardrobe Item</h1>
+            
+            <div class="form-decorative-line"></div>
 
-            <form action="/wardrobe" method="POST">
+            <form action="/wardrobe/<%= item._id %>?_method=PUT" method="POST">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="imageUrl">Item Photo URL</label>
+                        <input 
+                            type="text" 
+                            id="imageUrl" 
+                            name="imageUrl" 
+                            value="<%= item.imageUrl || '' %>"
+                            placeholder="https://example.com/image.jpg"
+                        >
+                        <small>Paste a link to your item's photo</small>
+                    </div>
 
-                <label for="imageUrl">Item Photo *</label>
-                <input type="text" id="imageUrl" name="imageUrl">
+                    <div class="form-group full-width">
+                        <label for="name">Item Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            value="<%= item.name %>"
+                            maxlength="100" 
+                            required 
+                            placeholder="e.g. Blue Cotton T-Shirt"
+                        >
+                    </div>
 
-                <label for="name">Item Name *</label>
-                <input type="text" id="name" name="name" maxlength="100" required placeholder="e.g. Blue Cotton T-Shirt">
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="top" <%= item.category === 'top' ? 'selected' : '' %>>Top</option>
+                            <option value="bottom" <%= item.category === 'bottom' ? 'selected' : '' %>>Bottom</option>
+                            <option value="shoes" <%= item.category === 'shoes' ? 'selected' : '' %>>Shoes</option>
+                            <option value="outerwear" <%= item.category === 'outerwear' ? 'selected' : '' %>>Outerwear</option>
+                            <option value="accessory" <%= item.category === 'accessory' ? 'selected' : '' %>>Accessory</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="color">Color *</label>
+                        <select id="color" name="color" required>
+                            <option value="">Select a color</option>
+                            <option value="black" <%= item.color === 'black' ? 'selected' : '' %>>Black</option>
+                            <option value="white" <%= item.color === 'white' ? 'selected' : '' %>>White</option>
+                            <option value="gray" <%= item.color === 'gray' ? 'selected' : '' %>>Gray</option>
+                            <option value="blue" <%= item.color === 'blue' ? 'selected' : '' %>>Blue</option>
+                            <option value="red" <%= item.color === 'red' ? 'selected' : '' %>>Red</option>
+                            <option value="green" <%= item.color === 'green' ? 'selected' : '' %>>Green</option>
+                            <option value="brown" <%= item.color === 'brown' ? 'selected' : '' %>>Brown</option>
+                            <option value="beige" <%= item.color === 'beige' ? 'selected' : '' %>>Beige</option>
+                            <option value="navy" <%= item.color === 'navy' ? 'selected' : '' %>>Navy</option>
+                            <option value="pink" <%= item.color === 'pink' ? 'selected' : '' %>>Pink</option>
+                        </select>
+                    </div>
 
-                <label for="category">Category *</label>
-                <select id="category" name="category" required>
-                    <option value="">Select a category</option>
-                    <option value="top">Top</option>
-                    <option value="bottom">Bottom</option>
-                    <option value="shoes">Shoes</option>
-                    <option value="outerwear">Outerwear</option>
-                    <option value="accessory">Accessory</option>
-                </select>
+                    <div class="form-group">
+                        <label for="size">Size</label>
+                        <select id="size" name="size">
+                            <option value="">Not specified</option>
+                            <option value="XS" <%= item.size === 'XS' ? 'selected' : '' %>>XS</option>
+                            <option value="S" <%= item.size === 'S' ? 'selected' : '' %>>S</option>
+                            <option value="M" <%= item.size === 'M' ? 'selected' : '' %>>M</option>
+                            <option value="L" <%= item.size === 'L' ? 'selected' : '' %>>L</option>
+                            <option value="XL" <%= item.size === 'XL' ? 'selected' : '' %>>XL</option>
+                            <option value="XXL" <%= item.size === 'XXL' ? 'selected' : '' %>>XXL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input 
+                            type="text" 
+                            id="brand" 
+                            name="brand" 
+                            value="<%= item.brand || '' %>"
+                            maxlength="50" 
+                            placeholder="e.g. Nike, Zara"
+                        >
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="season">Best Season</label>
+                        <select id="season" name="season">
+                            <option value="all" <%= !item.season || item.season === 'all' ? 'selected' : '' %>>Any season</option>
+                            <option value="spring" <%= item.season === 'spring' ? 'selected' : '' %>>Spring</option>
+                            <option value="summer" <%= item.season === 'summer' ? 'selected' : '' %>>Summer</option>
+                            <option value="fall" <%= item.season === 'fall' ? 'selected' : '' %>>Fall</option>
+                            <option value="winter" <%= item.season === 'winter' ? 'selected' : '' %>>Winter</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="notes">Notes</label>
+                        <textarea 
+                            id="notes" 
+                            name="notes" 
+                            maxlength="500" 
+                            rows="4" 
+                            placeholder="Any special care instructions, occasions, etc..."
+                        ><%= item.notes || '' %></textarea>
+                        <small>Max 500 characters</small>
+                    </div>
+                </div>
                 
-                <label for="color">Color *</label>
-                <select id="color" name="color" required>
-                    <option value="">Select a color</option>
-                    <option value="black">Black</option>
-                    <option value="white">White</option>
-                    <option value="gray">Gray</option>
-                    <option value="blue">Blue</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="brown">Brown</option>
-                    <option value="beige">Beige</option>
-                    <option value="navy">Navy</option>
-                    <option value="pink">Pink</option>
-                </select>
-
-                <label for="size">Size</label>
-                <select id="size" name="size">
-                    <option value="">Not specified</option>
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                </select>
-
-                <label for="brand">Brand</label>
-                <input type="text" id="brand" name="brand" maxlength="50" placeholder="e.g., Nike, Zara">
-
-                <label for="season">Best Season</label>
-                <select id="season" name="season">
-                    <option value="all">Any season</option>
-                    <option value="spring">Spring</option>
-                    <option value="summer">Summer</option>
-                    <option value="fall">Fall</option>
-                    <option value="winter">Winter</option>
-                </select>
-
-                <label for="notes">Notes</label>
-                <textarea id="notes" name="notes" maxlength="500" rows="4" 
-                  placeholder="Any special care instructions, occasions, etc..."></textarea>
-                <small>Max 500 characters</small>
-                
-                <div class="add-btn">
-                    <button type="submit" class="btn-primary">Update</button>
-                    <button type="submit" class="btn-primary">Delete</button>
-                    <a href="/wardrobe" class="btn-secondary">Cancel</a>
+                <div class="form-actions edit-actions">
+                    <button type="submit" class="btn-primary">Update Item ✎</button>
+                    <a href="/wardrobe/<%= item._id %>" class="btn-secondary">Cancel</a>
                 </div>
             </form>
+            
+            <!-- Separate Delete Section -->
+            <div class="delete-section">
+                <div class="delete-divider"></div>
+                <div class="delete-form">
+                    <button 
+                        type="button" 
+                        class="btn-delete"
+                        onclick="openDeleteModal()">
+                        Delete Item ✕
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Item?</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to permanently delete "<strong><%= item.name %></strong>"?</p>
+                <p class="modal-warning">This action cannot be undone.</p>
+            </div>
+            <div class="modal-actions">
+                <form action="/wardrobe/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button type="submit" class="modal-btn-delete">Yes, Delete</button>
+                </form>
+                <button type="button" class="modal-btn-cancel" onclick="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('deleteModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('deleteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDeleteModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDeleteModal();
+            }
+        });
+    </script>
 </body>
 </html>

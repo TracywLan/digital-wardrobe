@@ -3,32 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up</title>
+  <title>Sign Up - What2Wear</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <div class="signup-page">
-    <div class="signup-form-container-1">
-      <div class="signup-form-container-2">
-        <h1>Sign up</h1>
-        <form action="/auth/sign-up" method="POST">
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username" required />
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" required />
-          <label for="confirmPassword">Confirm Password:</label>
+  
+  <div class="auth-page">
+    <div class="auth-container">
+      <div class="auth-decorative-header">
+        <div class="auth-sparkle">✦</div>
+        <h1>Join What2Wear</h1>
+        <div class="auth-sparkle">✦</div>
+      </div>
+      
+      <p class="auth-subtitle">Create your digital wardrobe</p>
+      
+      <div class="auth-decorative-line"></div>
+      
+      <form action="/auth/sign-up" method="POST" class="auth-form">
+        <div class="auth-form-group">
+          <label for="username">Username</label>
+          <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            placeholder="Choose a username"
+            required 
+            autocomplete="username"
+          />
+        </div>
+        
+        <div class="auth-form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            placeholder="Create a password"
+            required 
+            autocomplete="new-password"
+          />
+        </div>
+        
+        <div class="auth-form-group">
+          <label for="confirmPassword">Confirm Password</label>
           <input
             type="password"
             name="confirmPassword"
             id="confirmPassword"
+            placeholder="Confirm your password"
             required
+            autocomplete="new-password"
           />
-          <button type="submit">Sign up</button>
-        </form>
-      </div>
+        </div>
+        
+        <button type="submit" class="auth-btn-primary">Create Account</button>
+      </form>
+      
+      <p class="auth-switch">
+        Already have an account? <a href="/auth/sign-in">Sign in</a>
+      </p>
     </div>
-    <div class="signup-img"></div>
   </div>
 </body>
 </html>

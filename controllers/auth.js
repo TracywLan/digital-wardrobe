@@ -78,7 +78,6 @@ router.post('/sign-in', async(req, res) => {
       _id: user._id,
     };
     
-    req.session.message = `Welcome back, ${user.username}!`;
     
     req.session.save(() => {
       res.redirect("/wardrobe");

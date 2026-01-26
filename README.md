@@ -2,8 +2,8 @@
 ![what2wear_logo](public/images/what2wear_logo.png)
 
 
-### Name: What2Wear
-Description: Your digital closet! Do you always look at a full closet and think "I have nothing to wear!"? Well that wont be a problem anymore! What2Wear is your new digital wardrobe. Add your clothing items, organize them by style or season, and instantly see what’s in your collection. It’s the easy way to manage your closet and keep track of everything you own!
+# What2Wear
+Your digital closet! Do you always look at a full closet and think "I have nothing to wear!"? Well that wont be a problem anymore! What2Wear is your new digital wardrobe. Add your clothing items, organize them by style or season, and instantly see what’s in your collection. It’s the easy way to manage your closet and keep track of everything you own!
 
 
 ### Background: 
@@ -11,10 +11,10 @@ I've always had a hard time of keeping track of what I have in the closet and pi
 
 ## Getting Started
 * Deployed project link: https://digital-wardrobe-gsqa.onrender.com
-* link to planning materials: https://trello.com/b/S0Pjgbqe
+* Planning materials: https://trello.com/b/S0Pjgbqe
 
 ## Technologies Used
-*Javascript
+* Javascript
 * HTML
 * CSS
 * Node.js 

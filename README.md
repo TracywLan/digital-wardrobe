@@ -1,5 +1,5 @@
 ### Logo: 
-![what2wear_logo](images/what2wear_logo.png)
+![what2wear_logo](public/images/what2wear_logo.png)
 
 
 ### Name: What2Wear
@@ -10,20 +10,24 @@ Description: Your digital closet! Do you always look at a full closet and think 
 I've always had a hard time of keeping track of what I have in the closet and picking out what I want to wear. With a digital closet, I can check out every clothing piece I own at a glance and quickly pick and match as I desire. 
 
 ## Getting Started
-Deployed project link: https://digital-wardrobe-gsqa.onrender.com
-link to planning materials: https://trello.com/b/S0Pjgbqe
+* Deployed project link: https://digital-wardrobe-gsqa.onrender.com
+* link to planning materials: https://trello.com/b/S0Pjgbqe
 
 ## Technologies Used
-Javascript, HTML, CSS, Node.js, Express, MongoDB
-
-import: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-https://www.geeksforgeeks.org/
+*Javascript
+* HTML
+* CSS
+* Node.js 
+* Express
+* MongoDB
 
 ## Attributions
 * Acloset
-* ChatGPT for logo and design ideas
-* MDN
-* https://www.geeksforgeeks.org/
+* ChatGPT for logo, design ideas and slogans
+* [MDN](https://developer.mozilla.org/en-US/)
+* [GeekforGeeks](https://www.geeksforgeeks.org/)
+* [W3schools](https://www.w3schools.com/css/)
+
 
 ## Next Steps
 **1. Building My Outfits**

@@ -75,6 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateSubtypes(); // Run immediately when page opens
         
-        categorySelect.addEventListener('change', updateSubtypes); // Run when the user changes the category
+        categorySelect.addEventListener('change', updateSubtypes); // Run when the category changes
     }
 });

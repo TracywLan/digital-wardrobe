@@ -129,7 +129,6 @@ nav {
     font-style: italic;
     font-size: 0.75rem;
     letter-spacing: 2px;
-    white-space: nowrap;
 }
 
 .bottom-border {
@@ -703,17 +702,6 @@ main > p a {
     margin-bottom: 15px;
 }
 
-/* .sparkle {
-    font-size: 1.5rem;
-    color: var(--dark-grey);
-    opacity: 0.4;
-    animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
-} */
 
 .auth-decorative-header h1 {
     font-family: 'Tangerine', cursive;
@@ -755,7 +743,6 @@ main > p a {
     font-size: 1rem;
     font-family: 'Georgia', serif;
     color: var(--dark-grey);
-    transition: all 0.3s;
     box-sizing: border-box;
 }
 
@@ -783,17 +770,9 @@ main > p a {
     pointer-events: none;
 }
 
-.auth-btn-primary::after {
-    content: ' →';
-    transition: transform 0.3s;
-    display: inline-block;
-}
 
 .auth-btn-primary:hover {
     background: #2a2224;
     box-shadow: 0 6px 20px rgba(61, 52, 54, 0.25);
 }
 
-.auth-btn-primary:hover::after {
-    transform: translateX(5px);
-}
